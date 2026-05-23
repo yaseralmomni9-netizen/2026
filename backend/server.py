@@ -209,3 +209,10 @@ async def shutdown_db_client():
 @api_router.get("/")
 async def root():
     return {"message": "Mobile Shop Management System API", "version": "1.0"}
+
+# --- الإضافة الجديدة والذكية للإقلاع التلقائي على منصة Render ---
+if __name__ == "__main__":
+    import uvicorn
+    # قراءة البورت ديناميكياً وإذا لم يتوفر يتم التشغيل على المنفذ الافتراضي لـ Render
+    port_number = int(os.environ.get("PORT", 10000))
+    uvicorn.run("server:app", host="0.0.0.0", port=port_number)
